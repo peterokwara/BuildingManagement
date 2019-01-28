@@ -1,9 +1,11 @@
 # Set up connection to wifi access point
 def connect():
     import network
-    ssid = ""
+    import config
 
-    password = ""
+    ssid = config.WIFI_CONFIG['WIFI_ESSID']
+
+    password = config.WIFI_CONFIG['WIFI_PASSWORD']
 
     station = network.WLAN(network.STA_IF)
 
