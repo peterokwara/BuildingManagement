@@ -13,10 +13,12 @@ connectWifi.connect()
 
 # define pins for the pir motion sensor
 pinPir = machine.Pin(0, machine.Pin.IN, machine.Pin.PULL_UP)
+pinPir1 = machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_UP)
 
 state = 'off'
 lockLow = True
-motiondetected = 0
+motiondetectedone = 0
+motiondetectedtwo = 0
 pause = 7000
 takeLowTime = ''
 
@@ -29,7 +31,7 @@ PUB_TOPIC = config.MQTT_CONFIG['PUB_TOPIC']
 
 
 def sub_cb(topic, msg):
-    global state, motiondetected, updatestate
+    global state, motiondetectedone, motiondetectedtwo, updatestate
     print((topic, msg))
     command = msg.decode('ASCII')
     channel = topic.decode('ASCII')
@@ -42,13 +44,17 @@ def sub_cb(topic, msg):
         if command == "off":
             state = "off"
             print("Turned off")
-            motiondetected = 0
+            motiondetectedone = 0
+            motiondetectedtwo = 0
 
     if channel == "pir_state":
         if command == "on":
-            motiondetected = 1
+            motiondetectedone = 1
+            motiondetectedtwo = 1
+
         if command == "off":
-            motiondetected = 0
+            motiondetectedone = 0
+            motiondetectedtwo = 0
 
 
 def main(server=SERVER, port=PORT):
@@ -56,19 +62,32 @@ def main(server=SERVER, port=PORT):
     c.set_callback(sub_cb)
 
     while True:
-        global state, motiondetected, updatestate, lockLow, takeLowTime
+        global state, motiondetectedone, updatestate, lockLow, takeLowTime, motiondetectedtwo
 
         c.connect()
 
-        if pinPir.value() == 1 and motiondetected == 0:
-            c.publish(PUB_TOPIC, b"on")
-            motiondetected = 1
-            print("motiondetected state is (on)", motiondetected)
+        if pinPir.value() == 1 and motiondetectedone == 0:
+            c.publish(PUB_TOPIC, b"pir 1 on")
+            motiondetectedone = 1
+            print("motiondetected state is (on)", motiondetectedone)
 
-        if pinPir.value() == 0 and motiondetected == 1:
-            c.publish(PUB_TOPIC, b"off")
-            motiondetected = 0
-            print("motiondetected state is (off)", motiondetected)
+        if pinPir.value() == 0 and motiondetectedone == 1:
+            c.publish(PUB_TOPIC, b"pir 1 off")
+            motiondetectedone = 0
+            print("motiondetected state is (off)", motiondetectedone)
+
+        c.disconnect()
+        c.connect()
+
+        if pinPir1.value() == 1 and motiondetectedtwo == 0:
+            c.publish(PUB_TOPIC, b"pir 2 on")
+            motiondetectedtwo = 1
+            print("motiondetected state is (on)", motiondetectedtwo)
+
+        if pinPir1.value() == 0 and motiondetectedtwo == 1:
+            c.publish(PUB_TOPIC, b"pir 2 off")
+            motiondetectedtwo = 0
+            print("motiondetected state is (off)", motiondetectedtwo)
 
         c.disconnect()
 
