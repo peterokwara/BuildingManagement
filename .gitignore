@@ -1,1 +1,4 @@
 site/client/yarn.lock
+esp/motion-sensor/config.py
+site/node_modules
+site/yarn.lock
