@@ -1,0 +1,18 @@
+{
+  "name": "building-management",
+  "version": "1.0.0",
+  "description": "Front end and black end for a building management website",
+  "scripts": {
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix client",
+    "server-install": "npm install --prefix server",
+    "client-install": "npm install --prefix client",
+    "start": "npm run server-install && npm run client-install && concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter.O",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
