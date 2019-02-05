@@ -8,7 +8,7 @@
     "server-install": "npm install --prefix server",
     "client-install": "npm install --prefix client",
     "heroku-postbuild": "npm install --prefix server && npm install --prefix client ",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Peter.O",
