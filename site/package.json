@@ -7,7 +7,7 @@
     "client": "npm start --prefix client",
     "server-install": "npm install --prefix server",
     "client-install": "npm install --prefix client",
-    "start": "npm run server-install && npm run client-install && concurrently \"npm run server\" \"npm run client\"",
+    "start": " concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Peter.O",
