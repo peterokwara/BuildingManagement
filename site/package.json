@@ -1,19 +1,17 @@
 {
-  "name": "building-management",
+  "name": "site",
   "version": "1.0.0",
-  "description": "Front end and black end for a building management website",
-  "scripts": {
-    "server": "npm start --prefix server",
-    "client": "npm start --prefix client",
-    "server-install": "npm install --prefix server",
-    "client-install": "npm install --prefix client",
-    "heroku-postbuild": "npm install --prefix client && npm install --prefix server ",
-    "start": "concurrently \"npm run client\" \"npm run server\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Peter.O",
-  "license": "ISC",
+  "main": "app.js",
+  "license": "MIT",
   "dependencies": {
-    "concurrently": "^4.1.0"
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.9",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
   }
 }
