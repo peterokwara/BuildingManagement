@@ -2,3 +2,5 @@ site/client/yarn.lock
 esp/motion-sensor/config.py
 site/node_modules
 site/yarn.lock
+site/config
+site/npm-debug.log
