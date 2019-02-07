@@ -3,9 +3,17 @@
   "version": "1.0.0",
   "main": "app.js",
   "license": "MIT",
+  "scripts": {
+    "client-install": "yarn install --modules-folder client",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "yarn --cwd client/ start",
+    "dev": "concurrently \"yarn run server\" \"yarn run client\""
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "express": "^4.16.4",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.4.0",
