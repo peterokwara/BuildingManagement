@@ -22,11 +22,11 @@ class SignIn extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const newUser = {
+    const user = {
       email: this.state.email,
       password1: this.state.password1
     };
-    console.log(newUser);
+    console.log(user);
   }
   render() {
     return (
@@ -36,7 +36,7 @@ class SignIn extends Component {
             <Header as="h2" textAlign="center">
               Sign In
             </Header>
-            <Form size="large">
+            <Form size="large" onSubmit={this.onSubmit}>
               <Form.Field>
                 <label>Email</label>
                 <input
