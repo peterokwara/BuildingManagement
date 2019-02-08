@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Header, Form, Grid, Message } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 class SignIn extends Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class SignIn extends Component {
                 Sign In
               </Button>
               <Message>
-                New to us? <a href="#">Sign Up</a>
+                New to us? <Link to="/signup">Sign Up</Link>
               </Message>
             </Form>
           </Grid.Column>
