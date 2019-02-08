@@ -29,6 +29,7 @@ class SignUp extends Component {
       password1: this.state.password1,
       password2: this.state.password2
     };
+    console.log(newUser);
   }
   render() {
     return (
@@ -38,7 +39,7 @@ class SignUp extends Component {
             <Header as="h2" textAlign="center">
               Sign Up
             </Header>
-            <Form size="large">
+            <Form size="large" onSubmit={this.onSubmit}>
               <Form.Field>
                 <label>Name</label>
                 <input
