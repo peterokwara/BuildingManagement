@@ -3,6 +3,7 @@ import { Button, Header, Form, Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 
 class SignUp extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ class SignUp extends Component {
       password: this.state.password,
       password2: this.state.password2
     };
-    this.props.registerUser(newUser);
+    this.props.registerUser(newUser, this.props.history);
   }
   render() {
     const { errors } = this.state;
@@ -113,4 +114,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { registerUser }
-)(SignUp);
+)(withRouter(SignUp));
