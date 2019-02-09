@@ -21,9 +21,16 @@ class SignIn extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/mainpage");
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
+      this.props.history.push("/mainpage");
     }
 
     if (nextProps.errors) {
