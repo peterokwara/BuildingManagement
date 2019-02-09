@@ -3,16 +3,20 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import SignIn from "./container/SignIn/SignIn";
 import SignUp from "./container/SignUp/SignUp";
+import { Provider } from "react-redux";
+import store from "./store";
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Route exact path="/" component={SignIn} />
-          <Route exact path="/signup" component={SignUp} />
-        </div>
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <div className="App">
+            <Route exact path="/" component={SignIn} />
+            <Route exact path="/signup" component={SignUp} />
+          </div>
+        </Router>
+      </Provider>
     );
   }
 }
