@@ -116,7 +116,7 @@ class SignUp extends Component {
   }
 }
 
-SignUp.PropTypes = {
+SignUp.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
