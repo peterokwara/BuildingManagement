@@ -11,7 +11,7 @@ class SignUp extends Component {
     this.state = {
       name: "",
       email: "",
-      password1: "",
+      password: "",
       password2: "",
       errors: {}
     };
@@ -23,23 +23,27 @@ class SignUp extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onSubmit(e) {
     e.preventDefault();
 
     const newUser = {
       name: this.state.name,
       email: this.state.email,
-      password1: this.state.password1,
+      password: this.state.password,
       password2: this.state.password2
     };
     this.props.registerUser(newUser);
   }
   render() {
     const { errors } = this.state;
-    const { user } = this.props.auth;
     return (
       <div>
-        {user ? user.name : null}
         <Grid centered style={{ height: "100%" }} verticalAlign="middle">
           <Grid.Column style={{ maxWidth: "450px" }}>
             <Header as="h2" textAlign="center">
@@ -69,8 +73,8 @@ class SignUp extends Component {
                 <input
                   type="password"
                   placeholder="password"
-                  name="password1"
-                  value={this.state.password1}
+                  name="password"
+                  value={this.state.password}
                   onChange={this.onChange}
                 />
               </Form.Field>
@@ -97,11 +101,13 @@ class SignUp extends Component {
 
 SignUp.PropTypes = {
   registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  errors: state.errors
 });
 
 export default connect(
