@@ -24,6 +24,12 @@ class SignUp extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/mainpage");
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
