@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Header, Form, Grid } from "semantic-ui-react";
+import { Button, Header, Form, Grid, Message } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import PropTypes from "prop-types";
@@ -50,8 +50,12 @@ class SignUp extends Component {
             <Header as="h2" textAlign="center">
               Sign Up
             </Header>
-            <Form size="large" onSubmit={this.onSubmit}>
-              <Form.Field>
+            <Form
+              error={errors ? true : false}
+              size="large"
+              onSubmit={this.onSubmit}
+            >
+              <Form.Field error={errors.name ? true : false}>
                 <label>Name</label>
                 <input
                   placeholder="name"
@@ -60,7 +64,10 @@ class SignUp extends Component {
                   onChange={this.onChange}
                 />
               </Form.Field>
-              <Form.Field>
+              {errors.name ? (
+                <Message error header="Error!" content={errors.name} />
+              ) : null}
+              <Form.Field error={errors.email ? true : false}>
                 <label>Email</label>
                 <input
                   name="email"
@@ -69,7 +76,10 @@ class SignUp extends Component {
                   onChange={this.onChange}
                 />
               </Form.Field>
-              <Form.Field>
+              {errors.name ? (
+                <Message error header="Error!" content={errors.email} />
+              ) : null}
+              <Form.Field error={errors.password ? true : false}>
                 <label>Password</label>
                 <input
                   type="password"
@@ -79,7 +89,10 @@ class SignUp extends Component {
                   onChange={this.onChange}
                 />
               </Form.Field>
-              <Form.Field>
+              {errors.password ? (
+                <Message error header="Error!" content={errors.password} />
+              ) : null}
+              <Form.Field error={errors.password2 ? true : false}>
                 <label>Confirm Password</label>
                 <input
                   type="password"
@@ -89,6 +102,9 @@ class SignUp extends Component {
                   onChange={this.onChange}
                 />
               </Form.Field>
+              {errors.password2 ? (
+                <Message error header="Error!" content={errors.password2} />
+              ) : null}
               <Button fluid type="submit">
                 Sign Up
               </Button>
