@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Button, Header, Form, Grid, Message } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/authActions";
 
 class SignIn extends Component {
   constructor(props) {
@@ -8,7 +11,7 @@ class SignIn extends Component {
 
     this.state = {
       email: "",
-      password1: "",
+      password: "",
       errors: {}
     };
 
@@ -18,17 +21,28 @@ class SignIn extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push("/dashboard");
+    }
+
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
 
   onSubmit(e) {
     e.preventDefault();
 
-    const user = {
+    const userData = {
       email: this.state.email,
-      password1: this.state.password1
+      password: this.state.password
     };
-    console.log(user);
+    this.props.loginUser(userData);
   }
   render() {
+    const { errors } = this.state;
+
     return (
       <div>
         <Grid centered style={{ height: "100%" }} verticalAlign="middle">
@@ -36,8 +50,12 @@ class SignIn extends Component {
             <Header as="h2" textAlign="center">
               Sign In
             </Header>
-            <Form size="large" onSubmit={this.onSubmit}>
-              <Form.Field>
+            <Form
+              error={errors ? true : false}
+              size="large"
+              onSubmit={this.onSubmit}
+            >
+              <Form.Field error={errors.email ? true : false}>
                 <label>Email</label>
                 <input
                   placeholder="email"
@@ -46,16 +64,22 @@ class SignIn extends Component {
                   onChange={this.onChange}
                 />
               </Form.Field>
-              <Form.Field>
+              {errors.email ? (
+                <Message error header="Error!" content={errors.email} />
+              ) : null}
+              <Form.Field error={errors.password ? true : false}>
                 <label>Password</label>
                 <input
                   type="password"
                   placeholder="password"
-                  name="password1"
-                  value={this.state.password1}
+                  name="password"
+                  value={this.state.password}
                   onChange={this.onChange}
                 />
               </Form.Field>
+              {errors.password ? (
+                <Message error header="Error!" content={errors.password} />
+              ) : null}
               <Button fluid type="submit">
                 Sign In
               </Button>
@@ -70,4 +94,18 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+SignIn.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(SignIn);
