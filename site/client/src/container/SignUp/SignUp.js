@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Button, Header, Form, Grid } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
+import PropTypes from "prop-types";
 
 class SignUp extends Component {
   constructor(props) {
@@ -29,11 +32,14 @@ class SignUp extends Component {
       password1: this.state.password1,
       password2: this.state.password2
     };
-    console.log(newUser);
+    this.props.registerUser(newUser);
   }
   render() {
+    const { errors } = this.state;
+    const { user } = this.props.auth;
     return (
       <div>
+        {user ? user.name : null}
         <Grid centered style={{ height: "100%" }} verticalAlign="middle">
           <Grid.Column style={{ maxWidth: "450px" }}>
             <Header as="h2" textAlign="center">
@@ -89,4 +95,16 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+SignUp.PropTypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(SignUp);
