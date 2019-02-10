@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Create Schema
-const UserSchema = new Schema({
+const MotionSensorSchema = new Schema({
   sensor1: {
     type: Number,
     required: true
@@ -17,4 +17,4 @@ const UserSchema = new Schema({
   }
 });
 
-module.exports = Pir = mongoose.model("Pir", UserSchema);
+module.exports = MotionSensor = mongoose.model("MotionSensor", MotionSensorSchema);
