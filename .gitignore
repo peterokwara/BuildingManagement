@@ -6,3 +6,4 @@ site/node_modules
 site/yarn.lock
 site/config
 site/npm-debug.log
+pi/yarn.lock
