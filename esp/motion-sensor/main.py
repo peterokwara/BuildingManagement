@@ -67,12 +67,12 @@ def main(server=SERVER, port=PORT):
         c.connect()
 
         if pinPir.value() == 1 and motiondetectedone == 0:
-            c.publish(PUB_TOPIC, b"pir 1 on")
+            c.publish(PUB_TOPIC, b"pir1on")
             motiondetectedone = 1
             print("motiondetected state is (on)", motiondetectedone)
 
         if pinPir.value() == 0 and motiondetectedone == 1:
-            c.publish(PUB_TOPIC, b"pir 1 off")
+            c.publish(PUB_TOPIC, b"pir1off")
             motiondetectedone = 0
             print("motiondetected state is (off)", motiondetectedone)
 
@@ -80,12 +80,12 @@ def main(server=SERVER, port=PORT):
         c.connect()
 
         if pinPir1.value() == 1 and motiondetectedtwo == 0:
-            c.publish(PUB_TOPIC, b"pir 2 on")
+            c.publish(PUB_TOPIC, b"pir2on")
             motiondetectedtwo = 1
             print("motiondetected state is (on)", motiondetectedtwo)
 
         if pinPir1.value() == 0 and motiondetectedtwo == 1:
-            c.publish(PUB_TOPIC, b"pir 2 off")
+            c.publish(PUB_TOPIC, b"pir2off")
             motiondetectedtwo = 0
             print("motiondetected state is (off)", motiondetectedtwo)
 
