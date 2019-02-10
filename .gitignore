@@ -1,5 +1,7 @@
 site/client/yarn.lock
 esp/motion-sensor/config.py
+pi/node_modules
+pi/config
 site/node_modules
 site/yarn.lock
 site/config
