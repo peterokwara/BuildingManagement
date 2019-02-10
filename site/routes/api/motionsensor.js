@@ -15,3 +15,13 @@ router.post("/", (req, res) => {
 });
 
 module.exports = router;
+
+// @route   GET api/motionsensor/all
+// @desc    Return all motion sensor data
+// @access  Public
+router.get("/all", (req, res) => {
+  MotionSensor.find()
+    .sort({ date: -1 })
+    .then(motiondata => res.json(motiondata));
+  // console.log(req.MotionSensor.sensor1);
+});
