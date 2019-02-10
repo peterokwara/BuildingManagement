@@ -5,6 +5,7 @@ const passport = require("passport");
 const cors = require("cors");
 
 const users = require("./routes/api/users");
+const pir = require("./routes/api/pir");
 
 const app = express();
 
@@ -32,5 +33,6 @@ require("./config/passport")(passport);
 
 // use routes
 app.use("/api/users", users);
+app.use("/api/pir", pir);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
