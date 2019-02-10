@@ -1,5 +1,5 @@
 const mqtt = require("mqtt");
-const mongoose = require("mongoose");
+const axios = require("axios");
 
 // client configuration
 const broker = require("./config/broker").brokerUrl;
@@ -7,14 +7,8 @@ const broker = require("./config/broker").brokerUrl;
 // connect to the broker
 const client = mqtt.connect(broker);
 
-// db configuration
-const db = require("./config/mongodb").mongoUri;
-
-// connect to mongodb
-mongoose
-  .connect(db)
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
+// server configuration
+const server = require("./config/server").serverUrl;
 
 client.on("connect", function() {
   client.subscribe("pir_state");
@@ -22,7 +16,23 @@ client.on("connect", function() {
 });
 
 client.on("message", function(topic, message) {
-  console.log(message.toString()); //if toString is not given, the message come$
   console.log("message is " + message.toString());
   console.log("topic is " + topic.toString());
+  switch (message.toString()) {
+    case "pir1on":
+      var data = { sensor1: 1, sensor2: 0 };
+      axios
+        .post(server + "/api/pir", data)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+      console.log(server + "/api/pir");
+    case "pir2on":
+      var data = { sensor1: 0, sensor2: 1 };
+      axios
+        .post(server + "/api/pir", data)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+    default:
+      break;
+  }
 });
