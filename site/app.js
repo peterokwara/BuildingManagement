@@ -5,7 +5,7 @@ const passport = require("passport");
 const cors = require("cors");
 
 const users = require("./routes/api/users");
-const pir = require("./routes/api/pir");
+const motionsensors = require("./routes/api/motionsensor");
 
 const app = express();
 
@@ -33,6 +33,6 @@ require("./config/passport")(passport);
 
 // use routes
 app.use("/api/users", users);
-app.use("/api/pir", pir);
+app.use("/api/motionsensors", motionsensors);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
