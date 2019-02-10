@@ -19,7 +19,13 @@ Next you will be prompted for the password for the pi login: the default passwor
 mosquitto_sub –d –t armtronix_mqtt
 mosquitto_pub –d –t armtronix_mqtt –m “Hello armtronix”
 
+ping raspberrypi.local
+
+lt --port 8000
+
 http://wp.spoton.cz/2017/11/29/micropython-on-esp-01-8266/
 https://medium.com/@akash0x53/esp8266-micropython-101-435085ffae5c
 
 https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f
+
+https://medium.com/salted-bytes/mqtt-raspberry-pi-with-nodejs-478a4839bc43
