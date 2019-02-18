@@ -14,13 +14,39 @@ class LeftMenu extends Component {
     return (
       <div>
         <Menu secondary pointing vertical style={{ minHeight: "100vh" }}>
-          <Menu.Item>
+          <Menu.Item
+            onClick={() => {
+              window.location.href = "/dashboard";
+            }}
+          >
+            <Menu.Header>Dashboard</Menu.Header>
+          </Menu.Item>
+          <Menu.Item
+            onClick={() => {
+              window.location.href = "/motionsensor";
+            }}
+          >
             <Menu.Header>Motion Sensor</Menu.Header>
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item
+            onClick={() => {
+              window.location.href = "/temperaturesensor";
+            }}
+          >
             <Menu.Header>Temperature Sensor</Menu.Header>
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item
+            onClick={() => {
+              window.location.href = "/currentsensor";
+            }}
+          >
+            <Menu.Header>Current sensor</Menu.Header>
+          </Menu.Item>
+          <Menu.Item
+            onClick={() => {
+              window.location.href = "/relays";
+            }}
+          >
             <Menu.Header>Relays</Menu.Header>
           </Menu.Item>
         </Menu>

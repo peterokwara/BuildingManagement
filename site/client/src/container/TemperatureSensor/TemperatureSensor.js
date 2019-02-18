@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TopMenu from "../../components/TopMenu/TopMenu";
 import LeftMenu from "../../components/LeftMenu/LeftMenu";
-import MotionSensor from "../../components/MotionSensor/MotionSensor";
+import Temperature from "../../components/Temperature/Temperature";
 import { Grid } from "semantic-ui-react";
 
 class MainPage extends Component {
@@ -14,7 +14,7 @@ class MainPage extends Component {
             <LeftMenu />
           </Grid.Column>
           <Grid.Column width={14}>
-            <MotionSensor />
+            <Temperature />
           </Grid.Column>
         </Grid>
       </div>

@@ -3,7 +3,11 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignIn from "./container/SignIn/SignIn";
 import SignUp from "./container/SignUp/SignUp";
-import MainPage from "./container/MainPage/MainPage";
+import Dashboard from "./container/Dashboard/Dashboard";
+import MotionSensor from "./container/MotionSensor/MotionSensor";
+import TemperatureSensor from "./container/TemperatureSensor/TemperatureSensor";
+import CurrentSensor from "./container/CurrentSensor/CurrentSensor";
+import Relays from "./components/Relays/Relays";
 import { Provider } from "react-redux";
 import store from "./store";
 import jwt_decode from "jwt-decode";
@@ -39,7 +43,31 @@ class App extends Component {
             <Route exact path="/" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
             <Switch>
-              <PrivateRoute exact path="/mainpage" component={MainPage} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
+            </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/motionsensor"
+                component={MotionSensor}
+              />
+            </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/temperaturesensor"
+                component={TemperatureSensor}
+              />
+            </Switch>
+            <Switch>
+              <PrivateRoute
+                exact
+                path="/currentsensor"
+                component={CurrentSensor}
+              />
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/relays" component={Relays} />
             </Switch>
           </div>
         </Router>
