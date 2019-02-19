@@ -7,3 +7,4 @@ site/yarn.lock
 site/config
 site/npm-debug.log
 pi/yarn.lock
+esp/temperature-sensor/config.py
