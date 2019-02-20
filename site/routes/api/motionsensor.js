@@ -14,8 +14,6 @@ router.post("/", (req, res) => {
   newMotionSensor.save().then(MotionSensor => res.json(MotionSensor));
 });
 
-module.exports = router;
-
 // @route   GET api/motionsensor/all
 // @desc    Return all motion sensor data
 // @access  Public
@@ -25,3 +23,5 @@ router.get("/all", (req, res) => {
     .then(motiondata => res.json(motiondata));
   // console.log(req.MotionSensor.sensor1);
 });
+
+module.exports = router;
