@@ -30,10 +30,10 @@ class LeftMenu extends Component {
           </Menu.Item>
           <Menu.Item
             onClick={() => {
-              window.location.href = "/temperaturesensor";
+              window.location.href = "/dhtsensor";
             }}
           >
-            <Menu.Header>Temperature Sensor</Menu.Header>
+            <Menu.Header>Dht Sensor</Menu.Header>
           </Menu.Item>
           <Menu.Item
             onClick={() => {

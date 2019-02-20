@@ -5,7 +5,7 @@ import SignIn from "./container/SignIn/SignIn";
 import SignUp from "./container/SignUp/SignUp";
 import Dashboard from "./container/Dashboard/Dashboard";
 import MotionSensor from "./container/MotionSensor/MotionSensor";
-import TemperatureSensor from "./container/TemperatureSensor/TemperatureSensor";
+import DhtSensor from "./container/DhtSensor/DhtSensor";
 import CurrentSensor from "./container/CurrentSensor/CurrentSensor";
 import Relays from "./components/Relays/Relays";
 import { Provider } from "react-redux";
@@ -53,18 +53,7 @@ class App extends Component {
               />
             </Switch>
             <Switch>
-              <PrivateRoute
-                exact
-                path="/temperaturesensor"
-                component={TemperatureSensor}
-              />
-            </Switch>
-            <Switch>
-              <PrivateRoute
-                exact
-                path="/currentsensor"
-                component={CurrentSensor}
-              />
+              <PrivateRoute exact path="/dhtsensor" component={DhtSensor} />
             </Switch>
             <Switch>
               <PrivateRoute exact path="/relays" component={Relays} />
