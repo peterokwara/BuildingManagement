@@ -8,3 +8,4 @@ site/config
 site/npm-debug.log
 pi/yarn.lock
 esp/temperature-sensor/config.py
+esp/dht-sensor/config.py
