@@ -8,9 +8,11 @@
     "start": "node app.js",
     "server": "nodemon app.js",
     "client": "yarn --cwd client/ start",
+    "subscriber": "nodemon subscriber/app.js",
     "dev": "concurrently \"yarn run server\" \"yarn run client\""
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "concurrently": "^4.1.0",
@@ -18,7 +20,8 @@
     "express": "^4.16.4",
     "gravatar": "^1.8.0",
     "jsonwebtoken": "^8.4.0",
-    "mongoose": "^5.4.9",
+    "mongoose": "^5.4.14",
+    "mqtt": "^2.18.8",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "validator": "^10.11.0"
