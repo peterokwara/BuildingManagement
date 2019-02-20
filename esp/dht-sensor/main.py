@@ -12,35 +12,29 @@ d = DHT11(Pin(2))
 SERVER = config.MQTT_CONFIG['MQTT_HOST']
 PORT = config.MQTT_CONFIG['PORT']
 SENSOR_ID = config.MQTT_CONFIG['SENSOR_ID']
-PUB_TOPIC1 = config.MQTT_CONFIG['PUB_TOPIC1']
-PUB_TOPIC2 = config.MQTT_CONFIG['PUB_TOPIC2']
+PUB_TOPIC = config.MQTT_CONFIG['PUB_TOPIC']
 
 
 def read_sensor():
     d.measure()
-    return (d.temperature(), d.humidity())
+    return {
+        "temperature": d.temperature(),
+        "humidity": d.humidity()
+    }
 
 
-def sendTemperature(data):
-    c = MQTTClient(SENSOR_ID, SERVER, int(PORT))
+def send(data):
+    c = MQTTClient(SENSOR_ID, SERVER, 1883)
     c.connect()
-    c.publish(PUB_TOPIC1, json.dumps(data))
-    c.disconnect()
-
-
-def sendHumidity(data):
-    c = MQTTClient(SENSOR_ID, SERVER, int(PORT))
-    c.connect()
-    c.publish(PUB_TOPIC2, json.dumps(data))
+    c.publish(PUB_TOPIC, json.dumps(data))
     c.disconnect()
 
 
 def main():
     while True:
-        temperature, humidity = read_sensor()
-        print("Sending data for temperature ", temperature, " and humidity ", humidity)
-        sendTemperature(temperature)
-        sendHumidity(humidity)
+        data = read_sensor()
+        print("Sending data", data)
+        send(data)
         time.sleep(10)
 
 
