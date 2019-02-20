@@ -7,29 +7,35 @@ const broker = require("../config/broker").brokerUrl;
 const server = require("../config/server").serverUrl;
 
 // get topics to subscribe to
-const climate_data = require("../config/publishers").dhtSensor;
-const motion_data = require("../config/publishers").motionSensor;
+const climate_data = require("../config/topics").climateData;
+const motion_data = require("../config/topics").motionSensor;
 
 // Connect to the broker
 const client = mqtt.connect(broker);
 
 // Subscribe to topics
 client.on("connect", function() {
-  client.subscribe(motion_data);
-  console.log("client has subscribed successfully to " + motion_data);
-  client.subscribe(climate_data);
+  // client.subscribe(motion_data);
+  // console.log("client has subscribed successfully to " + motion_data);
+  client.subscribe("building/room/climate");
   console.log("client has subscribed successfully to " + climate_data);
 });
 
 // When message comes in
 client.on("message", function(topic, message) {
-  message = message.toString();
   switch (topic.toString()) {
-    case "building/room/temp":
-      var temperature = Object(message).temperature;
-      console.log(message.toString());
-      console.log(temperature);
-      return console.log("hello there!" + JSON.stringify(temperature));
+    case climate_data:
+      var data = {
+        temperature: JSON.parse(message).temperature,
+        humidity: JSON.parse(message).humidity,
+        date: Date.now()
+      };
+      console.log(data);
+      axios
+        .post(server + "/api/dhtsensor", data)
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+      return;
     case "motion_data":
       return console.log("hello there! a" + message);
     default:
