@@ -13,7 +13,7 @@ const ClimateSchema = new Schema({
   },
   date: {
     type: Date,
-    required: true
+    default: Date.now
   },
   room_id: {
     type: String,

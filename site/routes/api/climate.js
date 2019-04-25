@@ -10,7 +10,6 @@ router.post("/", (req, res) => {
   const newClimate = new Climate({
     temperature: req.body.temperature,
     humidity: req.body.humidity,
-    date: req.body.date,
     room_id: req.body.room_id
   });
   newClimate.save().then(Climate => res.json(Climate));

@@ -10,8 +10,7 @@ router.post("/", (req, res) => {
   const newRoom = new Room({
     room_name: req.body.room_name,
     room_description: req.body.room_description,
-    priviledge_level: req.body.priviledge_level,
-    date: req.body.date
+    priviledge_level: req.body.priviledge_level
   });
   newRoom.save().then(Room => res.json(Room));
 });
