@@ -1,19 +1,19 @@
 const express = require("express");
 const router = express.Router();
 
-const DhtSensor = require("../../models/dhtsensor");
+const Climate = require("../../models/climate");
 
-// @route   POST api/dhtsensor
+// @route   POST api/climate
 // @desc    Create sensor data from dht sensor
 // @access  Public
 router.post("/", (req, res) => {
-  const newDhtSensor = new DhtSensor({
+  const newClimate = new Climate({
     temperature: req.body.temperature,
     humidity: req.body.humidity,
-    date: req.body.date
+    date: req.body.date,
+    room_id: req.body.room_id
   });
-
-  newDhtSensor.save().then(DhtSensor => res.json(DhtSensor));
+  newClimate.save().then(Climate => res.json(Climate));
 });
 
 // @route   GET api/dhtsensor/all
@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
 router.get("/all", (req, res) => {
   DhtSensor.find()
     .sort({ date: -1 })
-    .then(dhtdata => res.json(dhtdata));
+    .then(climatedata => res.json(climatedata));
 });
 
 module.exports = router;
