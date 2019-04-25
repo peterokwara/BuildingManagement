@@ -11,7 +11,7 @@ import {
 
 const LineChartComponent = props => (
   <div>
-    <h1>DHT Sensor</h1>
+    <h1>{props.title}</h1>
     <LineChart
       width={1500}
       height={700}
@@ -25,11 +25,11 @@ const LineChartComponent = props => (
       <Legend />
       <Line
         type="monotone"
-        dataKey="temperature"
+        dataKey={props.line1}
         stroke="#8884d8"
         activeDot={{ r: 8 }}
       />
-      <Line type="monotone" dataKey="humidity" stroke="#82ca9d" />
+      <Line type="monotone" dataKey={props.line2} stroke="#82ca9d" />
     </LineChart>
   </div>
 );
