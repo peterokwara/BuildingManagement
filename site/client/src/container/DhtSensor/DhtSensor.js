@@ -41,7 +41,13 @@ class DhtSensor extends Component {
             <LeftMenu />
           </Grid.Column>
           <Grid.Column width={14}>
-            <LineChartComponent deviceData={climateDataSet} />
+            <LineChartComponent
+              deviceData={climateDataSet}
+              title={"Climate Data"}
+              xaxis={"date"}
+              line1={"temperature"}
+              line2={"humidity"}
+            />
           </Grid.Column>
         </Grid>
       </div>
