@@ -16,7 +16,6 @@ PUB_TOPIC = config.MQTT_CONFIG['PUB_TOPIC']
 
 
 def read_sensor():
-    d.measure()
     return {
         "temperature": d.temperature(),
         "humidity": d.humidity()
@@ -35,7 +34,6 @@ def main():
         data = read_sensor()
         print("Sending data", data)
         send(data)
-        time.sleep(10)
 
 
 if __name__ == "__main__":
