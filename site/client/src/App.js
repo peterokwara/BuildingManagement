@@ -8,6 +8,7 @@ import MotionSensor from "./container/MotionSensor/MotionSensor";
 import DhtSensor from "./container/DhtSensor/DhtSensor";
 import Power from "./container/Power/Power";
 import Relays from "./components/Relays/Relays";
+import Devices from "./container/Devices/Devices";
 import { Provider } from "react-redux";
 import store from "./store";
 import jwt_decode from "jwt-decode";
@@ -60,6 +61,9 @@ class App extends Component {
             </Switch>
             <Switch>
               <PrivateRoute exact path="/relays" component={Relays} />
+            </Switch>
+            <Switch>
+              <PrivateRoute exact path="/devices" component={Devices} />
             </Switch>
           </div>
         </Router>
