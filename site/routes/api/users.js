@@ -119,4 +119,14 @@ router.get(
   }
 );
 
+// @route   GET api/users/all
+// @desc    Return all users
+// @access  Public
+router.get("/all", (req, res) => {
+  User.find()
+    .sort({ date: -1 })
+    .then(motiondata => res.json(motiondata));
+  // console.log(req.MotionSensor.sensor1);
+});
+
 module.exports = router;
