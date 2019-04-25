@@ -15,8 +15,8 @@ router.post("/", (req, res) => {
   newClimate.save().then(Climate => res.json(Climate));
 });
 
-// @route   GET api/dhtsensor/all
-// @desc    Return all motion sensor data
+// @route   GET api/climate/all
+// @desc    Return all climate data
 // @access  Public
 router.get("/all", (req, res) => {
   DhtSensor.find()
