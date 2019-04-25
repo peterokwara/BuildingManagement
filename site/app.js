@@ -5,7 +5,7 @@ const passport = require("passport");
 const cors = require("cors");
 
 const users = require("./routes/api/users");
-const motionsensors = require("./routes/api/motionsensor");
+const occupancy = require("./routes/api/occupancy");
 const climate = require("./routes/api/climate");
 const rooms = require("./routes/api/room");
 
@@ -35,7 +35,7 @@ require("./config/passport")(passport);
 
 // use routes
 app.use("/api/users", users);
-app.use("/api/motionsensors", motionsensors);
+app.use("/api/occupancy", occupancy);
 app.use("/api/climate", climate);
 app.use("/api/rooms", rooms);
 

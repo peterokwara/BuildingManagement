@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Create Schema
-const MotionSensorSchema = new Schema({
-  sensor1: {
-    type: Number,
+const OccupancySchema = new Schema({
+  room_id: {
+    type: String,
     required: true
   },
-  sensor2: {
+  occupancy: {
     type: Number,
     required: true
   },
@@ -17,4 +17,4 @@ const MotionSensorSchema = new Schema({
   }
 });
 
-module.exports = MotionSensor = mongoose.model("MotionSensor", MotionSensorSchema);
+module.exports = Occupancy = mongoose.model("Occupancy", OccupancySchema);
