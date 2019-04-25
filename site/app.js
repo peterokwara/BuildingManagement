@@ -7,6 +7,7 @@ const cors = require("cors");
 const users = require("./routes/api/users");
 const motionsensors = require("./routes/api/motionsensor");
 const climate = require("./routes/api/climate");
+const rooms = require("./routes/api/room");
 
 const app = express();
 
@@ -36,5 +37,6 @@ require("./config/passport")(passport);
 app.use("/api/users", users);
 app.use("/api/motionsensors", motionsensors);
 app.use("/api/climate", climate);
+app.use("/api/rooms", rooms);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
