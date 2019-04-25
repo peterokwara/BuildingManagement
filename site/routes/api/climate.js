@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
 // @desc    Return all climate data
 // @access  Public
 router.get("/all", (req, res) => {
-  DhtSensor.find()
+  Climate.find()
     .sort({ date: -1 })
     .then(climatedata => res.json(climatedata));
 });
