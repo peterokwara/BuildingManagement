@@ -8,6 +8,7 @@ const users = require("./routes/api/users");
 const occupancy = require("./routes/api/occupancy");
 const climate = require("./routes/api/climate");
 const rooms = require("./routes/api/room");
+const power = require("./routes/api/power");
 
 const app = express();
 
@@ -38,5 +39,6 @@ app.use("/api/users", users);
 app.use("/api/occupancy", occupancy);
 app.use("/api/climate", climate);
 app.use("/api/rooms", rooms);
+app.use("/api/power", power);
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
