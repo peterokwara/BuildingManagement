@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const cors = require("cors");
+const path = require("path");
 
 const users = require("./routes/api/users");
 const occupancy = require("./routes/api/occupancy");
@@ -42,5 +43,14 @@ app.use("/api/climate", climate);
 app.use("/api/rooms", rooms);
 app.use("/api/power", power);
 app.use("/api/devices", devices);
+
+// serve static assets if in production
+if (process.env.NODE_ENV === "production") {
+  // set up static folder
+  app.use(express.static("client/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
