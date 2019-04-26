@@ -5,7 +5,7 @@ import SignIn from "./container/SignIn/SignIn";
 import SignUp from "./container/SignUp/SignUp";
 import Dashboard from "./container/Dashboard/Dashboard";
 import MotionSensor from "./container/MotionSensor/MotionSensor";
-import DhtSensor from "./container/DhtSensor/DhtSensor";
+import Climate from "./container/Climate/Climate";
 import Power from "./container/Power/Power";
 import Relays from "./components/Relays/Relays";
 import Devices from "./container/Devices/Devices";
@@ -55,7 +55,7 @@ class App extends Component {
               />
             </Switch>
             <Switch>
-              <PrivateRoute exact path="/dhtsensor" component={DhtSensor} />
+              <PrivateRoute exact path="/Climate" component={Climate} />
             </Switch>
             <Switch>
               <PrivateRoute exact path="/power" component={Power} />

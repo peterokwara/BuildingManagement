@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import TopMenu from "../../components/TopMenu/TopMenu";
 import LeftMenu from "../../components/LeftMenu/LeftMenu";
-import Climate from "../../components/Climate/Climate";
 import LineChartComponent from "../../components/LineChartComponent/LineChartComponent";
 import { Grid } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { getDhtSensorData } from "../../actions/deviceActions";
+import { getClimateData } from "../../actions/deviceActions";
 import PropTypes from "prop-types";
 
-class DhtSensor extends Component {
+class Climate extends Component {
   componentDidMount() {
-    this.props.getDhtSensorData();
+    this.props.getClimateData();
   }
 
   componentWillReceiveProps(nextProps) {
-    this.props.getDhtSensorData();
+    this.props.getClimateData();
   }
 
   render() {
@@ -55,8 +54,8 @@ class DhtSensor extends Component {
   }
 }
 
-DhtSensor.propTypes = {
-  getDhtSensorData: PropTypes.func.isRequired,
+Climate.propTypes = {
+  getClimateData: PropTypes.func.isRequired,
   devicesData: PropTypes.object.isRequired
 };
 
@@ -66,5 +65,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getDhtSensorData }
-)(DhtSensor);
+  { getClimateData }
+)(Climate);

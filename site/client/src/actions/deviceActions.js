@@ -25,7 +25,7 @@ export const getMotionSensorData = () => dispatch => {
 };
 
 // get data from dht sensor
-export const getDhtSensorData = () => dispatch => {
+export const getClimateData = () => dispatch => {
   axios
     .get("/api/climate/all")
     .then(res =>
