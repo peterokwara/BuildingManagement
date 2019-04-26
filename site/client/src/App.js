@@ -4,10 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import SignIn from "./container/SignIn/SignIn";
 import SignUp from "./container/SignUp/SignUp";
 import Dashboard from "./container/Dashboard/Dashboard";
-import MotionSensor from "./container/MotionSensor/MotionSensor";
 import Climate from "./container/Climate/Climate";
 import Power from "./container/Power/Power";
-import Relays from "./components/Relays/Relays";
 import Devices from "./container/Devices/Devices";
 import Occupancy from "./container/Occupancy/Occupancy";
 import { Provider } from "react-redux";
@@ -48,20 +46,10 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
             <Switch>
-              <PrivateRoute
-                exact
-                path="/motionsensor"
-                component={MotionSensor}
-              />
-            </Switch>
-            <Switch>
               <PrivateRoute exact path="/Climate" component={Climate} />
             </Switch>
             <Switch>
               <PrivateRoute exact path="/power" component={Power} />
-            </Switch>
-            <Switch>
-              <PrivateRoute exact path="/relays" component={Relays} />
             </Switch>
             <Switch>
               <PrivateRoute exact path="/devices" component={Devices} />
