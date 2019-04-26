@@ -46,6 +46,7 @@ class Climate extends Component {
               xaxis={"date"}
               line1={"temperature"}
               line2={"humidity"}
+              y_axis={"Temperature(°C) & Humidity(Relative Humidity)"}
             />
           </Grid.Column>
         </Grid>

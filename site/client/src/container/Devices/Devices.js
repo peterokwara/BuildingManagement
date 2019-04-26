@@ -45,6 +45,8 @@ class Devices extends Component {
               xaxis={"date"}
               line1={"bulb_state"}
               line2={"fan_state"}
+              y_axis={"Devices State"}
+
             />
           </Grid.Column>
         </Grid>

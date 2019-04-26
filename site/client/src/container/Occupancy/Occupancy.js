@@ -44,6 +44,7 @@ class Occupancy extends Component {
               title={"Occupancy Data"}
               xaxis={"date"}
               line1={"occupancy"}
+              y_axis={"Occupancy Number"}
             />
           </Grid.Column>
         </Grid>

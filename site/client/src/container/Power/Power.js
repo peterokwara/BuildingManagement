@@ -46,6 +46,7 @@ class Power extends Component {
               xaxis={"date"}
               line1={"power"}
               line2={"current"}
+              y_axis={"Power(W) and Current(A)"}
             />
           </Grid.Column>
         </Grid>
