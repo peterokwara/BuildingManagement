@@ -1,4 +1,4 @@
-import { GET_MOTION_DATA } from "../actions/types";
+import { GET_MOTION_DATA, GET_OCCUPANCY_DATA } from "../actions/types";
 import { GET_CLIMATE_DATA } from "../actions/types";
 import { GET_POWER_DATA } from "../actions/types";
 import { GET_DEVICES_DATA } from "../actions/types";
@@ -28,6 +28,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         devicesData: action.payload
+      };
+    case GET_OCCUPANCY_DATA:
+      return {
+        ...state,
+        occupancyData: action.payload
       };
     default:
       return state;

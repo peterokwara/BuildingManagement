@@ -4,6 +4,7 @@ import { GET_MOTION_DATA } from "./types";
 import { GET_CLIMATE_DATA } from "./types";
 import { GET_POWER_DATA } from "./types";
 import { GET_DEVICES_DATA } from "./types";
+import { GET_OCCUPANCY_DATA } from "./types";
 
 // get data from motion sensor
 export const getMotionSensorData = () => dispatch => {
@@ -59,13 +60,31 @@ export const getPowerData = () => dispatch => {
     );
 };
 
-// get data from current sensor
+// get data on devices state
 export const getDevicesData = () => dispatch => {
   axios
     .get("/api/devices/all")
     .then(res =>
       dispatch({
         type: GET_DEVICES_DATA,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: null
+      })
+    );
+};
+
+// get data on room occupancy
+export const getOccupancyData = () => dispatch => {
+  axios
+    .get("/api/occupancy/all")
+    .then(res =>
+      dispatch({
+        type: GET_OCCUPANCY_DATA,
         payload: res.data
       })
     )
