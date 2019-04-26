@@ -6,7 +6,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend
+  Legend,
+  Label
 } from "recharts";
 
 const SingleLineChartComponent = props => (
@@ -18,8 +19,12 @@ const SingleLineChartComponent = props => (
       data={props.deviceData}
       margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
     >
-      <XAxis dataKey="date" />
-      <YAxis />
+      <XAxis dataKey="date">
+        <Label value="Date and time" offset={5} position="insideBottomLeft" />
+      </XAxis>
+      <YAxis
+        label={{ value: props.y_axis, angle: -90, position: "insideLeft" }}
+      />
       <CartesianGrid strokeDasharray="3 3" />
       <Tooltip />
       <Legend />
