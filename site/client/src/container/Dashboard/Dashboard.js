@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TopMenu from "../../components/TopMenu/TopMenu";
 import LeftMenu from "../../components/LeftMenu/LeftMenu";
-import { Grid, Header, Rail, Segment } from "semantic-ui-react";
+import { Grid, Header } from "semantic-ui-react";
 import {
   getClimateData,
   getDevicesData,
