@@ -23,31 +23,31 @@ class LeftMenu extends Component {
           </Menu.Item>
           <Menu.Item
             onClick={() => {
-              window.location.href = "/motionsensor";
+              window.location.href = "/climate";
             }}
           >
-            <Menu.Header>Motion Sensor</Menu.Header>
+            <Menu.Header>Climate</Menu.Header>
           </Menu.Item>
           <Menu.Item
             onClick={() => {
-              window.location.href = "/dhtsensor";
+              window.location.href = "/occupancy";
             }}
           >
-            <Menu.Header>Dht Sensor</Menu.Header>
+            <Menu.Header>Occupancy</Menu.Header>
           </Menu.Item>
           <Menu.Item
             onClick={() => {
-              window.location.href = "/currentsensor";
+              window.location.href = "/devices";
             }}
           >
-            <Menu.Header>Current sensor</Menu.Header>
+            <Menu.Header>Devices</Menu.Header>
           </Menu.Item>
           <Menu.Item
             onClick={() => {
-              window.location.href = "/relays";
+              window.location.href = "/power";
             }}
           >
-            <Menu.Header>Relays</Menu.Header>
+            <Menu.Header>Power</Menu.Header>
           </Menu.Item>
         </Menu>
       </div>
