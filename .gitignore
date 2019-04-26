@@ -4,9 +4,9 @@ pi/node_modules
 pi/config
 site/node_modules
 site/yarn.lock
-site/config
 site/npm-debug.log
 pi/yarn.lock
 esp/temperature-sensor/config.py
 esp/dht-sensor/config.py
 esp/relay-bulb/config.py
+site/config/keys_dev.js
