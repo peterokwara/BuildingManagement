@@ -10,7 +10,7 @@
     "client": "yarn --cwd client/ start",
     "subscriber": "nodemon subscriber/app.js",
     "dev": "concurrently \"yarn run server\" \"yarn run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "dependencies": {
     "axios": "^0.18.0",
