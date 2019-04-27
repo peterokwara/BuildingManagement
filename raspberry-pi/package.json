@@ -1,0 +1,16 @@
+{
+  "name": "raspberry-pi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "mongoose": "^5.5.4",
+    "mqtt": "^2.18.8"
+  }
+}
