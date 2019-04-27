@@ -12,3 +12,4 @@ esp/relay-bulb/config.py
 site/config/keys_dev.js
 raspberry-pi/node_modules
 raspberry-pi/config
+raspberry-pi/package-lock.json
