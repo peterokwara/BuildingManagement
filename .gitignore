@@ -10,3 +10,5 @@ esp/temperature-sensor/config.py
 esp/dht-sensor/config.py
 esp/relay-bulb/config.py
 site/config/keys_dev.js
+raspberry-pi/node_modules
+raspberry-pi/config
