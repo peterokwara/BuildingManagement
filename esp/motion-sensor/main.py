@@ -4,7 +4,7 @@ import connectWifi
 import time
 import config
 import utime
-
+import json
 
 from machine import Pin
 from umqtt.simple import MQTTClient
@@ -12,10 +12,16 @@ from umqtt.simple import MQTTClient
 connectWifi.connect()
 
 # define pins for the pir motion sensor
-pin = machine.Pin(0, machine.Pin.IN, machine.Pin.PULL_UP)
+pin_1 = machine.Pin(0, machine.Pin.IN, machine.Pin.PULL_UP)
+pin_2 = machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_UP)
 
 state = "on"
-motiondetected = 0
+motiondetected_1 = 0
+motiondetected_2 = 0
+time_s1 = 0
+time_s2 = 0
+time_comp = 0
+count = 0
 
 
 SERVER = config.MQTT_CONFIG['MQTT_HOST']
@@ -26,19 +32,31 @@ PUB_TOPIC = config.MQTT_CONFIG['PUB_TOPIC']
 
 def main(server=SERVER, port=PORT):
     c = MQTTClient(SENSOR_ID, SERVER, 1883)
-    c.connect()
     time.sleep(2)
     while True:
-        global state, motiondetected, updatestate
-        if pin.value() == 1 and motiondetected == 0:
-            print("Motion Detected")
-            c.publish(PUB_TOPIC, b"on")
-            motiondetected = 1
+        global state, motiondetected_1, motiondetected_2, time_s1, time_s2, count
+        c.connect()
+        if pin_1.value() == 1 and motiondetected_1 == 0:
+            print("Motion from sensor 1 detected")
+            time_s1 = time.time()
+            c.publish(PUB_TOPIC, b"sensor_1_on")
+            motiondetected_1 = 1
 
-        if pin.value() == 0 and motiondetected == 1:
-            print("Resetting sensor state")
-            c.publish(PUB_TOPIC, b"off")
-            motiondetected = 0
+        if pin_1.value() == 0 and motiondetected_1 == 1:
+            print("Resetting sensor 1 state")
+            time_s2 = time.time()
+            c.publish(PUB_TOPIC, b"sensor_1_off")
+            motiondetected_1 = 0
+
+        if pin_2.value() == 1 and motiondetected_2 == 0:
+            print("Motion from sensor 2 detected")
+            c.publish(PUB_TOPIC, b"sensor_2_on")
+            motiondetected_2 = 1
+
+        if pin_2.value() == 0 and motiondetected_2 == 1:
+            print("Resetting sensor 2 state")
+            c.publish(PUB_TOPIC, b"sensor_2_off")
+            motiondetected_2 = 0
 
 
 if __name__ == "__main__":
