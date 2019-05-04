@@ -40,6 +40,16 @@ client.on("message", function(topic, message) {
   console.log("topic is " + topic.toString());
   switch (topic.toString()) {
     case "building/room/climate":
+      console.log(JSON.parse(message).temperature);
+      if (JSON.parse(message).temperature > 30) {
+        console.log("Temperature above 30");
+        console.log(JSON.parse(message).temperature);
+        client.publish("building/room/relay/fan", "on");
+      } else {
+        client.publish("building/room/relay/fan", "off");
+        console.log("Temperature below 30");
+        console.log(JSON.parse(message).temperature);
+      }
       var data = {
         temperature: JSON.parse(message).temperature,
         humidity: JSON.parse(message).humidity,
