@@ -1,3 +1,9 @@
+# Peter Okwara
+# F17/36211/2013 
+
+# This piece of code collects analog values for current from the ACS712 5A current sensor 
+# and provides the current and power consumed by devices connected to the current sensor
+
 import connectWifi
 import time
 import config
@@ -20,7 +26,7 @@ PORT = config.MQTT_CONFIG['PORT']
 SENSOR_ID = config.MQTT_CONFIG['SENSOR_ID']
 PUB_TOPIC = config.MQTT_CONFIG['PUB_TOPIC']
 
-
+# function for callibrating the current sensor
 def calibrate():
     global zero
     acc = 0
@@ -31,7 +37,7 @@ def calibrate():
     zero = acc / 10
     return zero
 
-
+# function for getting the current and power value from sensor
 def read_sensor():
     frequency = 50
     period = 1000000 / frequency
@@ -52,21 +58,22 @@ def read_sensor():
         "power": P
     }
 
-
-def send():
+# function for sending data to the MQTT broker
+def send(data):
     c = MQTTClient(SENSOR_ID, SERVER, 1883)
     c.connect()
-    c.publish(PUB_TOPIC, "sawasawao")
+    c.publish(PUB_TOPIC, data)
     c.disconnect()
 
 
 def main():
+    # start by callibrating the sensor
     calibrate()
     while True:
+        # read the analog value from the sensor
         data = read_sensor()
-        # print("Sending data", data)
-        send()
-        # time.sleep(10)
+        # transmit the analog value via MQTT
+        send(data)
 
 
 if __name__ == "__main__":
