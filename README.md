@@ -41,7 +41,7 @@ Circuit design
   <img src="./assets/esp-current-sensor/esp-current-sensor.png" width="600" />
 </p>
 
-Breadbord and final look
+Board design and the final look
 
 <p align="center">
   <img src="./assets/esp-current-sensor/esp-current-sensor-board.png" width="300" />
@@ -56,7 +56,7 @@ Circuit design
   <img src="./assets/esp-dht11-sensor/esp-dht-sensor.png" width="600" />
 </p>
 
-Breadbord and final look
+Board design and the final look
 
 <p align="center">
   <img src="./assets/esp-dht11-sensor/esp-dht-sensor-board.png" width="300" />
@@ -71,7 +71,7 @@ Circuit design
   <img src="./assets/esp-motion-sensor/esp-motion-sensor.png" width="600" />
 </p>
 
-Breadbord and final look
+Board design and the final look
 
 <p align="center">
   <img src="./assets/esp-motion-sensor/esp-motion-sensor-board.png" width="300" />
@@ -86,7 +86,7 @@ Circuit design
   <img src="./assets/esp-relay/esp-relay.png" width="600" />
 </p>
 
-Breadbord and final look
+Board design and the final look
 
 <p align="center">
   <img src="./assets/esp-relay/esp-relay-board.png" width="300" />
