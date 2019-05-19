@@ -3,6 +3,11 @@
 - [Table of Contents](#table-of-contents)
 - [Building Management System](#building-management-system)
 - [Video example](#video-example)
+- [Hardware setup](#hardware-setup)
+  - [Esp & Current sensor](#esp--current-sensor)
+  - [Esp & Dht sensor](#esp--dht-sensor)
+  - [Esp & Motion sensor](#esp--motion-sensor)
+  - [Esp & Relay](#esp--relay)
 - [Installation](#installation)
   - [Esp](#esp)
   - [Raspberry Pi](#raspberry-pi)
@@ -16,14 +21,77 @@
 
 # Building Management System
 
-This project seeks to demonstrate the use of MQTT protocol and MERN stack for building an IoT Building Management System for commercial usage, where parameters such as building occupancy, energy demand, andenergy consumption are measured and displayed on an online database and dashboard. A more detailed description of the project can be found [here](https://github.com/peterokwara/BuildingManagement/blob/master/Project%20Report.pdf).
+This project seeks to demonstrate the use of MQTT protocol and MERN stack for building an IoT Building Management System for commercial usage, where parameters such as building occupancy, energy demand, andenergy consumption are measured and displayed on an online database and dashboard.
+
+A more detailed description of the project can be found [here](https://github.com/peterokwara/BuildingManagement/blob/master/Project%20Report.pdf).
 
 # Video example
 
 A video of the project working
 
-<a href="https://www.youtube.com/watch?v=Yh3uR8R79lM" target="_blank"><p align="center"><img src="./assets/system.jpg" 
-alt="board setup of the building management system"/></p></a>
+<a href="https://www.youtube.com/watch?v=Yh3uR8R79lM" target="_blank"><p align="center"><img src="./assets/system.jpg" alt="board setup of the building management system" height="600"/></p></a>
+
+# Hardware setup
+
+## Esp & Current sensor
+
+Circuit design
+
+<p  align="center">
+  <img src="./assets/esp-current-sensor/esp-current-sensor.png" width="600" />
+</p>
+
+Breadbord and final look
+
+<p align="center">
+  <img src="./assets/esp-current-sensor/esp-current-sensor-board.png" width="300" />
+  <img src="./assets/esp-current-sensor/esp-current-sensor-final.jpg" width="300" /> 
+</p>
+
+## Esp & Dht sensor
+
+Circuit design
+
+<p align="center">
+  <img src="./assets/esp-dht11-sensor/esp-dht-sensor.png" width="600" />
+</p>
+
+Breadbord and final look
+
+<p align="center">
+  <img src="./assets/esp-dht11-sensor/esp-dht-sensor-board.png" width="300" />
+  <img src="./assets/esp-dht11-sensor/esp-dht-sensor-final.jpg" width="300" /> 
+</p>
+
+## Esp & Motion sensor
+
+Circuit design
+
+<p align="center">
+  <img src="./assets/esp-motion-sensor/esp-motion-sensor.png" width="600" />
+</p>
+
+Breadbord and final look
+
+<p align="center">
+  <img src="./assets/esp-motion-sensor/esp-motion-sensor-board.png" width="300" />
+  <img src="./assets/esp-motion-sensor/esp-motion-sensor-final.jpg" width="300" /> 
+</p>
+
+## Esp & Relay
+
+Circuit design
+
+<p align="center">
+  <img src="./assets/esp-relay/esp-relay.png" width="600" />
+</p>
+
+Breadbord and final look
+
+<p align="center">
+  <img src="./assets/esp-relay/esp-relay-board.png" width="300" />
+  <img src="./assets/esp-relay/esp-relay-final.jpg" width="300" /> 
+</p>
 
 # Installation
 
