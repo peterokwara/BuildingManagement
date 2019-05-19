@@ -3,6 +3,7 @@
 - [Table of Contents](#table-of-contents)
 - [Building Management System](#building-management-system)
 - [Video example](#video-example)
+- [Dashboard](#dashboard)
 - [Hardware setup](#hardware-setup)
   - [Esp & Current sensor](#esp--current-sensor)
   - [Esp & Dht sensor](#esp--dht-sensor)
@@ -27,9 +28,18 @@ A more detailed description of the project can be found [here](https://github.co
 
 # Video example
 
-A video of the project working
+A video of the project working (hardware)
 
 <a href="https://www.youtube.com/watch?v=Yh3uR8R79lM" target="_blank"><p align="center"><img src="./assets/system.jpg" alt="board setup of the building management system" height="600"/></p></a>
+
+A video of the project working (software)
+
+<a href="https://youtu.be/3eJK0t_gp44
+" target="_blank"><p align="center"><img src="./assets/dashboard.png" alt="video of the dashboard" height="500"/></p></a>
+
+# Dashboard
+
+You can access the dashboard after you sign up [here](https://thawing-scrubland-94209.herokuapp.com/)
 
 # Hardware setup
 
