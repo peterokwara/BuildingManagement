@@ -3,16 +3,16 @@
 - [Table of Contents](#table-of-contents)
 - [Building Management System](#building-management-system)
 - [Video example](#video-example)
-  - [Installation](#installation)
-    - [Esp](#esp)
-    - [Raspberry Pi](#raspberry-pi)
-    - [Server](#server)
-    - [Client](#client)
-  - [Usage](#usage)
-    - [Raspberry Pi](#raspberry-pi-1)
-    - [Website (server and client)](#website-server-and-client)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [Installation](#installation)
+  - [Esp](#esp)
+  - [Raspberry Pi](#raspberry-pi)
+  - [Server](#server)
+  - [Client](#client)
+- [Usage](#usage)
+  - [Raspberry Pi](#raspberry-pi-1)
+  - [Website (server and client)](#website-server-and-client)
+- [Contributing](#contributing)
+- [License](#license)
 
 # Building Management System
 
@@ -25,9 +25,9 @@ A video of the project working
 <a href="https://www.youtube.com/watch?v=Yh3uR8R79lM" target="_blank"><p align="center"><img src="./assets/system.jpg" 
 alt="board setup of the building management system"/></p></a>
 
-## Installation
+# Installation
 
-### Esp
+## Esp
 
 Installing in an ESP8266-01 and NodeMCU involves pushing the python files into the device whether it's via a usb to ttl or just a usb cable. This can be done using the command
 
@@ -53,7 +53,7 @@ WIFI_CONFIG = {
 }
 ```
 
-### Raspberry Pi
+## Raspberry Pi
 
 To install npm packages used for the Raspberry Pi, you run.
 
@@ -77,7 +77,7 @@ module.exports = {
 };
 ```
 
-### Server
+## Server
 
 To install npm packages used for the server, you run.
 
@@ -94,7 +94,7 @@ module.exports = {
 };
 ```
 
-### Client
+## Client
 
 To install npm packages used for the client, you run.
 
@@ -102,9 +102,9 @@ To install npm packages used for the client, you run.
 npm install jwt-decode axios react-redux redux recharts redux-thunk semantic-ui-css semantic-ui-react
 ```
 
-## Usage
+# Usage
 
-### Raspberry Pi
+## Raspberry Pi
 
 To run the code for Raspberry Pi just cd into the folder and run
 
@@ -124,7 +124,7 @@ and add
 node app.js &
 ```
 
-### Website (server and client)
+## Website (server and client)
 
 To run a local development of the website, all you need to do is to do the installation setup then once that is done
 
@@ -132,12 +132,12 @@ To run a local development of the website, all you need to do is to do the insta
 cd site && npm run dev
 ```
 
-## Contributing
+# Contributing
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
-## License
+# License
 
 [MIT](https://choosealicense.com/licenses/mit/)
